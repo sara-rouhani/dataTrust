@@ -1,0 +1,21 @@
+test:
+    name: dataTrust-contract-benchmark
+    description: test benchmark
+    workers:
+      type: local
+      number: 1
+    rounds:
+      - label: update
+        description: Read asset benchmark
+        #txDuration: 5
+        rateControl: 
+          type: fixed-load
+          opts:
+            transactionLoad: 2
+        txNumber: 20     
+
+        workload:
+          module: workload/update.js
+          arguments:
+            assets: 2
+            contractId: dataTrust

@@ -1,0 +1,22 @@
+test:
+    name: dataTrust-contract-benchmark
+    description: test benchmark
+    workers:
+      type: local
+      number: 2
+    rounds:
+      - label: MinMax
+        description: create data benchmark
+        #txDuration: 5
+        rateControl: 
+          type: fixed-load
+          opts:
+            tps: 1
+        txNumber: 25
+
+        workload:
+          module: workload/minmax.js
+          arguments:
+            assets: 2
+            contractId: dataTrust
+

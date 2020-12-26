@@ -1,0 +1,23 @@
+test:
+    name: dataTrust-contract-benchmark
+    description: test benchmark
+    workers:
+      type: local
+      number: 1
+    rounds:
+      - label: endorsUser
+        description: create data benchmark
+        #txDuration: 5
+        rateControl: 
+          type: fixed-load
+          opts:
+            tps: 100
+        txNumber: 4000 
+
+        workload:
+          module: workload/endorsUser.js
+          arguments:
+          
+            assets: 1
+            contractId: dataTrust
+

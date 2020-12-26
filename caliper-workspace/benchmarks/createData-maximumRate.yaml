@@ -1,0 +1,23 @@
+test:
+    name: dataTrust-contract-benchmark
+    description: test benchmark
+    workers:
+      type: local
+      number: 4
+    rounds:
+      - label: createData
+        description: create data benchmark
+        rateControl: 
+          type: maximum-rate
+          opts:
+            tps: 100
+            steps: 10
+            transactionLoad: 2
+        txNumber: 5000
+
+        workload:
+          module: workload/createData.js
+          arguments:
+            assets: 2
+            contractId: dataTrust
+
